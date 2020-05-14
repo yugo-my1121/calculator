@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Document</title>
+    
+    
+</head>
+<body>
+    <div class="frame">
+        <h1 class="frame__title">JavaScript</h1>
+        <div class="frame__inner">
+            <div id="app">
+                <input type="number" name="num1" v-model.number="num1">+
+                <input type="number" name="num2" v-model.number="num2">=
+                <span v-if= "done">{{answer}}</span>
+            </div>
+            <!--ここにJavaScriptを記述-->
+            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+            <script>
+                var app = new Vue({
+                    el:"#app",
+                    data:{
+                        num1:0,
+                        num2:0,
+                        
+                    },
+                    computed:{
+                        answer:function(){
+                            return this.num1 + this.num2;
+                        },
+                        done:function(){
+                            if(this.num1 !== 0 && this.num2 !== 0){
+                                return true;
+                            }else{
+                                return false;
+                            }
+                        }
+                    }
+                })
+            </script>
+        </div>
+    </div>
+    
+</body>
+</html>
